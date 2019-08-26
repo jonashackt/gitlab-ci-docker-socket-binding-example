@@ -17,7 +17,7 @@ stages:
 
 # see usage of Namespaces at https://docs.gitlab.com/ee/user/group/#namespaces
 variables:
-  REGISTRY_GROUP_PROJECT: $CI_REGISTRY/root/gitlab-ci-shell-example
+  REGISTRY_GROUP_PROJECT: $CI_REGISTRY/root/gitlab-ci-docker-socket-binding-example
 
 # see how to login at https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#using-the-gitlab-container-registry
 before_script:
@@ -29,7 +29,7 @@ build-image:
   tags:
     - socket
   script:
-    - docker build . --tag $REGISTRY_GROUP_PROJECT/gitlab-ci-shell-example:latest
+    - docker build . --tag $REGISTRY_GROUP_PROJECT/gitlab-ci-docker-socket-binding-example:latest
 
 test-image:
   stage: test
@@ -43,7 +43,7 @@ push-image:
   tags:
     - socket
   script:
-    - docker push $REGISTRY_GROUP_PROJECT/gitlab-ci-shell-example:latest
+    - docker push $REGISTRY_GROUP_PROJECT/gitlab-ci-docker-socket-binding-example:latest
 
 deploy-2-dev:
   stage: deploy
